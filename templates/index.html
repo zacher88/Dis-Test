@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Disney Availability Alerts</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Disney planning assistant</p>
+        <h1>Watch dining, Lightning Lane, and DVC availability in one place.</h1>
+        <p>
+          Add the reservation or resort you want, then run a check to see matching openings.
+          The current provider uses safe mock data so the app can be extended without relying
+          on brittle or unauthorized scraping.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Create an alert</h2>
+        <form id="watch-form">
+          <label>
+            Watch type
+            <select name="watch_type">
+              <option value="dining">Restaurant reservation</option>
+              <option value="lightning_lane">Lightning Lane ride time</option>
+              <option value="dvc">Disney Vacation Club resort</option>
+            </select>
+          </label>
+          <label>
+            Destination
+            <input name="destination" value="Walt Disney World" required />
+          </label>
+          <label>
+            Restaurant, attraction, or resort
+            <input name="item_name" placeholder="e.g. 'Ohana, TRON, BoardWalk Villas" required />
+          </label>
+          <label>
+            Party size / guests
+            <input name="party_size" type="number" value="2" min="1" required />
+          </label>
+          <label>
+            Start date
+            <input name="start_date" type="date" required />
+          </label>
+          <label>
+            End date
+            <input name="end_date" type="date" required />
+          </label>
+          <label>
+            Preferred time
+            <input name="preferred_time" type="time" />
+          </label>
+          <label>
+            Alert contact
+            <input name="contact" type="email" placeholder="planner@example.com" required />
+          </label>
+          <button type="submit">Save alert</button>
+        </form>
+        <p id="form-message" role="status"></p>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <div class="section-heading">
+            <h2>Watchlist</h2>
+            <button id="refresh-watchlist" type="button">Refresh</button>
+          </div>
+          <ul id="watchlist" class="cards"></ul>
+        </article>
+        <article class="panel">
+          <div class="section-heading">
+            <h2>Found openings</h2>
+            <button id="check-now" type="button">Check now</button>
+          </div>
+          <ul id="opportunities" class="cards"></ul>
+        </article>
+      </section>
+    </main>
+    <script src="/static/app.js" type="module"></script>
+  </body>
+</html>
