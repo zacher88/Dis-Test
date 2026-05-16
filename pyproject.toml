@@ -1,0 +1,15 @@
+[project]
+name = "disney-alerts"
+version = "0.1.0"
+description = "Prototype web app for monitoring Disney dining, Lightning Lane, and DVC availability."
+requires-python = ">=3.11"
+
+[project.scripts]
+disney-alerts = "disney_alerts.app:main"
+
+[tool.ruff]
+line-length = 100
+src = ["disney_alerts", "tests"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
